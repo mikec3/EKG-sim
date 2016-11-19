@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Afib
+  - NSR
+  - ST
+  - SB
+  - SA
+  - SArrest
+  - PAC
+  - Aflutter
+  - SVT
+  - PJC
+  - JB
+  - Junctional
+  - AJunctional
+  - JunctionalTachy
+  - PVC
+  - Idioventricular
+  - AIVR
+  - Vtach
+  - Torsades
+  - Vfib
+  - Asystole
+  - DualPaced
+  - VPaced
+  - APaced
+  - 1stAVB
+  - 2ndAVB1
+  - 2:1AVB
+  - 3rdAVB
+  - STElevation
+  - 2ndAVBII
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
