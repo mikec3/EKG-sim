@@ -26,7 +26,7 @@ public class TimeKeeper : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(gameStarted == true){	// if the game has started
+		if(gameStarted == true && paused == false){	// if the game has started and not paused
 		CountDown ();		// timer
 		}
 	}
@@ -67,11 +67,14 @@ public class TimeKeeper : MonoBehaviour {
 	}
 
 	public void StartGame(){		// start game
-		TimeKeeper.gameStarted = true;
-		paused = false;
+		if (!paused) {
+			StripGenerator.DestroyStrip ();	// destroy strip if game NOT paused
+		}
+		TimeKeeper.gameStarted = true;		// gameStarted static bool is true
+		paused = false;						// paused static bool is false
 	}
 
-	public void PauseGame(){
+	public void PauseGame(){		// pause button, pauses game
 		paused = true;
 	}
 
