@@ -60,6 +60,14 @@ public class StripGenerator : MonoBehaviour {
 		Destroy (Strip);			// destroy current strip
 	}
 
+	public void GenerateStrip(string tag){
+		//Debug.Log (tag + "button pressed");
+
+				
+				
+			}
+
+
 
 
 
