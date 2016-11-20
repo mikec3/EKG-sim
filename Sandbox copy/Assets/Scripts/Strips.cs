@@ -22,7 +22,7 @@ public class Strips : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GameStatus ();	// checks to see if game is start or stop
+		GameStatus ();	// checks to see if game start,stop, paused
 		FindHR ();		// sets HR based on tag of strip
 		DisplayHR();	// sets HR to text element in game
 	}
@@ -165,13 +165,15 @@ public class Strips : MonoBehaviour {
 		heartRateText.text = hR.ToString();	// displays hR variable in heartRateText as string
 	}
 
-	void GameStatus(){					// checks to see if game is start or stop
-		if (TimeKeeper.gameStarted == false) {	// if game is stopped
-			animator.enabled = false;				// stop animation
+	void GameStatus(){
+		// stops animator if game paused, starts animator if game NOT paused
+		if (TimeKeeper.paused) {
+			animator.enabled = false;
 		} else {
-			animator.enabled = true;			// otherwise play animation
+			animator.enabled = true;
 		}
 	}
+		
 
 	void OnMouseOver(){		// collider trigger attached to this
 		// stops animator when mouse over strip

@@ -9,6 +9,7 @@ public class TimeKeeper : MonoBehaviour {
 	private float minutes;
 	private float seconds;
 	public static bool finished = false;	// stores when game is finished
+	public static bool paused = false;		// stores if game is on pause
 
 	public static bool gameStarted;		// stores if game has started
 
@@ -24,7 +25,8 @@ public class TimeKeeper : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(gameStarted == true){	// if the game has started
+
+		if(gameStarted == true && paused == false){	// if the game has started and not paused
 		CountDown ();		// timer
 		}
 	}
@@ -65,11 +67,21 @@ public class TimeKeeper : MonoBehaviour {
 	}
 
 	public void StartGame(){		// start game
-		TimeKeeper.gameStarted = true;
+		if (!paused) {
+			StripGenerator.DestroyStrip ();	// destroy strip if game NOT paused
+		}
+		TimeKeeper.gameStarted = true;		// gameStarted static bool is true
+		paused = false;						// paused static bool is false
 	}
+
+	public void PauseGame(){		// pause button, pauses game
+		paused = true;
+	}
+
 
 	public void StopGame(){			// stop game
 		TimeKeeper.gameStarted = false;
+		paused = false;
 	}
 
 
