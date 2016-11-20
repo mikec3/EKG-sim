@@ -61,8 +61,17 @@ public class StripGenerator : MonoBehaviour {
 	}
 
 	public void GenerateStrip(string tag){
+		// takes tag from button (passed to it from button script), looks through entire StripArray and 
+		// finds the strip.tag that matches, then instantiates that strip.
 		//Debug.Log (tag + "button pressed");
-
+		DestroyStrip();
+		for (int i = 0; i < StripArray.Length; i++) {	// iterates over StripArray[] for entire lengh
+			if (StripArray [i].tag == tag) {			// if tag passed in matches tag of strip in array
+				Debug.Log (StripArray [i].tag);
+				Strip = Instantiate (StripArray [i], transform.position, Quaternion.identity) as GameObject;
+				Strip.transform.parent = transform;
+			}
+		}
 				
 				
 			}
