@@ -12,9 +12,13 @@ public class TimeKeeper : MonoBehaviour {
 	public static bool paused = false;		// stores if game is on pause
 
 	public static bool gameStarted;		// stores if game has started
+	private ButtonSpawner buttonSpawner;	// attached below, spawns buttons.
 
 	// Use this for initialization
 	void Start () {
+		// attaches ButtonSpawner
+		buttonSpawner = GameObject.Find("Button Spawner").GetComponent<ButtonSpawner>();
+
 		finished = false;			// game is not yet finished
 		gameStarted = false;		// game has not yet started
 		timeLeft = gameTime;
@@ -64,6 +68,8 @@ public class TimeKeeper : MonoBehaviour {
 		CreateTime ();				
 		DisplayTime ();		
 		StripGenerator.DestroyStrip ();		// destroy last strip
+		buttonSpawner.CreateAllButtons();
+
 	}
 
 	public void StartGame(){		// start game
@@ -79,6 +85,7 @@ public class TimeKeeper : MonoBehaviour {
 	}
 
 
+	// pretty sure this never gets used
 	public void StopGame(){			// stop game
 		TimeKeeper.gameStarted = false;
 		paused = false;

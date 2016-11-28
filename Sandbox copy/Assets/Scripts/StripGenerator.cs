@@ -9,6 +9,7 @@ public class StripGenerator : MonoBehaviour {
 	public static GameObject Strip;			// strips are isntantiated as Strip GameObjects
 	public GameObject grid;				// holds stripGrid, attached in editor
 	private GameObject gridNow;			// grid instantiates into gridNow below
+	private ButtonSpawner buttonSpawner;	// attached below, tells buttons when to spawn
 
 
 
@@ -16,6 +17,7 @@ public class StripGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		StripArraySize = StripArray.Length;		// sets StripArraySize to number of items in StripArray
+		buttonSpawner = GameObject.Find("Button Spawner").GetComponent<ButtonSpawner>();
 	}
 	
 	// Update is called once per frame
@@ -46,12 +48,16 @@ public class StripGenerator : MonoBehaviour {
 		 * strip array, sets it to GameOBject Strip and makes it a child of StripGenerator
 		 * */
 
+
 		if (TimeKeeper.gameStarted == true){				// if the game has started
 			if (transform.childCount == 0) {
 				//Debug.Log ("no strip");
 				int nextStripPointer = Random.Range (0, StripArraySize);
 				Strip = Instantiate (StripArray [nextStripPointer], transform.position, Quaternion.identity) as GameObject;
 				Strip.transform.parent = transform;
+
+				// tells buttonSpawner to create the random answer buttons
+				buttonSpawner.CreateRandomAnswerButtons ();
 			}
 		}
 	}
