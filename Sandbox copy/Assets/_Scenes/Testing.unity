@@ -442,7 +442,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405476, guid: d88986c9ba0214af09f26f772fb94602, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d88986c9ba0214af09f26f772fb94602, type: 2}
@@ -713,7 +713,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1697310016}
+  - {fileID: 1342420616}
   - {fileID: 1059255413}
   - {fileID: 485243742}
   - {fileID: 2066141090}
@@ -872,6 +872,99 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1026596723}
   m_Script: {fileID: 11500000, guid: f8e76ee9db834480f81137441589dcce, type: 3}
+--- !u!1 &1342420615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1342420616}
+  - 222: {fileID: 1342420618}
+  - 114: {fileID: 1342420617}
+  - 114: {fileID: 1342420619}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1342420616
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1342420615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1697310016}
+  m_Father: {fileID: 1056745347}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 3, y: -17}
+  m_SizeDelta: {x: -163, y: -306}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1342420617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1342420615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.20000002, g: 0.31764707, b: 0.8862746, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1342420618
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1342420615}
+--- !u!114 &1342420619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1342420615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2095666955, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 1
+  m_CellSize: {x: 200, y: 100}
+  m_Spacing: {x: 0, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &1514497433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1194,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1697310016}
   - 114: {fileID: 1697310017}
+  - 114: {fileID: 1697310018}
   m_Layer: 0
   m_Name: Button Spawner
   m_TagString: Untagged
@@ -1119,7 +1213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1056745347}
+  m_Father: {fileID: 1342420616}
   m_RootOrder: 0
 --- !u!114 &1697310017
 MonoBehaviour:
@@ -1132,6 +1226,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ea6463d418743808a46d17391e5ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  validationSpawner: {fileID: 0}
+  stripGenerator: {fileID: 0}
+--- !u!114 &1697310018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697310015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d3c24c47cca420e85bd2074c364982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerButton: {fileID: 169802, guid: b5c4bcd6086894a09b0654f89ad36e77, type: 2}
+  parentPanel: {fileID: 1342420616}
+  buttonArray:
+  - {fileID: 155782, guid: eafc4bb4340174a668386af58bac588b, type: 2}
+  - {fileID: 190746, guid: 5e64551eba83b4d728a69e1748f3a6b7, type: 2}
+  - {fileID: 165858, guid: 09955e73e855345b192662c51a34947c, type: 2}
+  - {fileID: 169802, guid: b5c4bcd6086894a09b0654f89ad36e77, type: 2}
+  - {fileID: 182044, guid: 76b50bfa91bca479bab7addd38d348c1, type: 2}
+  - {fileID: 150972, guid: d62d7444ddcef4588a1c9968b6857211, type: 2}
+  - {fileID: 131830, guid: c470c0fa43d1c4575ae4c866bb204650, type: 2}
+  - {fileID: 178474, guid: 93d512fb08cd2498e8a92d80cd6479be, type: 2}
+  - {fileID: 100738, guid: ea958fedfbcf8443bb37c34e4f65c00e, type: 2}
+  - {fileID: 187676, guid: 42f448b77e2f44357954503176d9203f, type: 2}
+  - {fileID: 123638, guid: bb60689b6c1fa48c09820e0b6925f262, type: 2}
+  - {fileID: 108956, guid: 8c08f3b8ede294155bc54a5a55a4daaf, type: 2}
+  - {fileID: 174780, guid: ffe0abaa9485942cdafbeb8fa0a26efe, type: 2}
+  - {fileID: 187002, guid: f8704f6810b73433ebb90b69466f97ac, type: 2}
+  - {fileID: 187342, guid: 87674734ecfa846b6a48263b5309b61b, type: 2}
+  - {fileID: 149046, guid: d3cd761cb20da4187b37f90a3f4728bf, type: 2}
+  - {fileID: 179336, guid: 3f060ea2ead334542abee422dac936de, type: 2}
+  - {fileID: 119228, guid: 32fc6dd6bf0d742e2a16147433224da3, type: 2}
+  - {fileID: 148034, guid: 4b51a25695c92478a8a535a86c7565a9, type: 2}
+  - {fileID: 144034, guid: 7a7190e0b0dc1429fb3095f77187271d, type: 2}
+  - {fileID: 150416, guid: 9705f340d945d4bd2afb751a3e543d7c, type: 2}
+  - {fileID: 159002, guid: e9eb6820ee8024006a0d5fd0f58c34e8, type: 2}
+  - {fileID: 149108, guid: 78581de6304ac484fa91f431a7f7a1a7, type: 2}
+  - {fileID: 112126, guid: 3e2ab4380b85f46809a2d7b0cd4521a9, type: 2}
+  - {fileID: 161928, guid: 6bb9ecc33b4be4ee295c9aa9151f2029, type: 2}
+  - {fileID: 185416, guid: e8b75940c7b8447f2a3a6ff991d629e6, type: 2}
+  - {fileID: 178920, guid: dfcedd9ff2c2f402ab6a7f950abf74c0, type: 2}
+  - {fileID: 167124, guid: 0a0ccc59d77514136afbc346a0668ae4, type: 2}
+  - {fileID: 150598, guid: 1c239ef4e03844a5eab5de4b48d8b644, type: 2}
   validationSpawner: {fileID: 0}
   stripGenerator: {fileID: 0}
 --- !u!1 &1730487588

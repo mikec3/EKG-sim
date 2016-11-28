@@ -4,7 +4,9 @@ using UnityEngine.UI;		// for canvas elements
 
 public class ButtonSpawner : MonoBehaviour {
 
-	public GameObject answerButton;			// answer button prefab attached in editor
+	private GameObject answerButton;			// buttonArray instantiated into answerButton
+	public RectTransform parentPanel;		// attached in unity, panel holds layout group
+	public GameObject[] buttonArray;			// holds array of buttons
 
 	public ValidationSpawner validationSpawner;		// validation spawner attached below
 	public StripGenerator stripGenerator;		// stripGenerator attached below
@@ -17,21 +19,29 @@ public class ButtonSpawner : MonoBehaviour {
 		stripGenerator = GameObject.Find ("StripGenerator").GetComponent<StripGenerator> ();
 		scoreKeeper = GameObject.Find ("ScoreKeeper").GetComponent<ScoreKeeper> ();
 
-
-		// instantiate the answerButton as a GameObject
-		answerButton = Instantiate (answerButton, transform.position, Quaternion.identity) as GameObject;
-		// set answerButton's parent as buttonSpawner, worldPositionStays is false
-		answerButton.transform.SetParent (transform, false);	
-
-		Button myButton = answerButton.GetComponent<Button> ();	// Allows answerButton to become a UI button
-
-		// adds onclick event listener, performs buttonPressed function sends button tag to buttonPressed
-		myButton.GetComponent<Button> ().onClick.AddListener (() => buttonPressed (myButton.tag));
+		CreateButtons ();		// Instatiate buttons
 	
 	}
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void CreateButtons(){
+
+		// instantiate the answerButton as a GameObject
+		for (int x = 0; x < buttonArray.Length; x++) {
+			
+			answerButton = Instantiate (buttonArray [x], transform.position, Quaternion.identity) as GameObject;
+			// set answerButton's parent as buttonSpawner, worldPositionStays is false
+			answerButton.transform.SetParent (parentPanel, false);	
+
+			Button myButton = answerButton.GetComponent<Button> ();	// Allows answerButton to become a UI button
+
+			// adds onclick event listener, performs buttonPressed function sends button tag to buttonPressed
+			myButton.GetComponent<Button> ().onClick.AddListener (() => buttonPressed (myButton.tag));
+
+		}
 	}
 
 	void buttonPressed(string name){

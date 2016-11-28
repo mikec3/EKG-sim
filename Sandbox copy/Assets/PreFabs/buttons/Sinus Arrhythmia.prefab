@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11469028}
   m_Layer: 5
   m_Name: Sinus Arrhythmia
-  m_TagString: Untagged
+  m_TagString: SA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

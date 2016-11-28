@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11431368}
   m_Layer: 5
   m_Name: 2_1AVB Button
-  m_TagString: Untagged
+  m_TagString: 2:1AVB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

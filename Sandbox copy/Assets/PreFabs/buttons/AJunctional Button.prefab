@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11484830}
   m_Layer: 5
   m_Name: AJunctional Button
-  m_TagString: Untagged
+  m_TagString: AJunctional
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
