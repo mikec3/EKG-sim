@@ -34,6 +34,7 @@ public class TimeKeeper : MonoBehaviour {
 		CountDown ();		// timer
 		}
 	}
+		
 
 	void CountDown(){
 		finished = false;				// if we're counting down, then game is not finished

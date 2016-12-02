@@ -8,13 +8,14 @@ public class ScoreKeeper : MonoBehaviour {
 	public static float inCorrect = 0;		// INCORRECT guesses
 	public Text text;						// text attached in editor for score
 	public Text stats;						// stats text attached in editor
+	public Text instructions;				// instructions text attached in editor
 	private TimeKeeper timeKeeper;			// uses the gameTime from TimeKeeper
 	private float shortTimer;				// holds timeLeft if game stopped early
 
 	// Use this for initialization
 	void Start () {
 		timeKeeper = GameObject.Find ("Timer").GetComponent<TimeKeeper> ();	// attaches TimeKeeper
-	
+		instructions.text = "Press play, or select a rhythm to study";
 	
 	}
 	
@@ -47,12 +48,15 @@ public class ScoreKeeper : MonoBehaviour {
 		float gameStat = Mathf.Round((correct / (correct + inCorrect)) * 100);	// % correct
 		float secPerStrip = Mathf.Round((timeKeeper.gameTime - shortTimer) / correct); // strip/second
 		stats.text = 
-			"Correct: " + correct + "\n" +
-		"Accuracy: " + gameStat + "% \n" +
-		"Sec/Strip: " + secPerStrip + "sec";			// game stats displayed
+			"Correct: " + correct  +
+		"       Accuracy: " + gameStat + "%" +
+		"       Sec/Strip: " + secPerStrip + "sec";			// game stats displayed
+
+		instructions.text = "Press play, or select a rhythm to study";
 	}
 
 	public void EraseStats(){
 		stats.text = null;				// creates empty stats box
+		instructions.text = null;
 	}
 }
