@@ -86,6 +86,8 @@ public class ButtonSpawner : MonoBehaviour {
 			if (child.gameObject.tag == buttonArray [indexer].tag) {
 				Debug.Log (buttonArray [indexer].tag + " duplicate answer found");
 				return true;
+			} else {
+				return false;
 			}
 		}
 		return false;
