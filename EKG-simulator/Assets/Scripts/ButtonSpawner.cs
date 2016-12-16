@@ -3,11 +3,10 @@ using System.Collections;
 using UnityEngine.UI;		// for canvas elements
 
 public class ButtonSpawner : MonoBehaviour {
-
+	
 	private GameObject answerButton;			// buttonArray instantiated into answerButton
-	public RectTransform parentPanel;		// attached in unity, panel holds layout group
+	public RectTransform parentPanel;			// attached in editor. buttons are children
 	public GameObject[] buttonArray;			// holds array of buttons
-
 	public ValidationSpawner validationSpawner;		// validation spawner attached below
 	public StripGenerator stripGenerator;		// stripGenerator attached below
 	private ScoreKeeper scoreKeeper;			// ScoreKeeper attached below
@@ -61,48 +60,73 @@ public class ButtonSpawner : MonoBehaviour {
 		
 		// for loop lasts as long as the randomNumber assigned to it
 		for (int y = 0; y < randomNumber; y++) {
-			
+
+			bool duplicates = false;
+
 			// creates a random index pointer from 0 to total array length
 			int indexPointer = Random.Range (0, buttonArray.Length);
 
+			if (DuplicateAnswer (indexPointer)) {
+				duplicates = true;
+			} else if (DuplicateButtons(indexPointer)){
+				duplicates = true;
+			}
+
 			// if the randomly chosen button DOES NOT match the strip on display, create the button
-			if (!(buttonArray [indexPointer].tag == StripGenerator.Strip.tag && DuplicateButtons(indexPointer))) {
-
-
-					//creates button at the random index pointer
-					CreateButtons (indexPointer);
+			if (duplicates) {
+				y--;	// rerun the loop
+					
 				
-			} else
-				{ y--; 
-				}		
+			}  else { 
+			
+				//creates button at the random index pointer
+				CreateButtons (indexPointer);
 
+			
+			}	
+		}
+	}
+
+	public bool DuplicateAnswer(int indexer) {
+		if (buttonArray [indexer].tag == StripGenerator.Strip.tag) {
+			Debug.Log (buttonArray [indexer].tag + " duplicate answer found");
+			return true;
+		} else {
+			return false;
 		}
 	}
 
 	public bool DuplicateButtons(int indexer){
 
+		bool value = false;		// sets initial return value to false
+
 		// for every child of parentPanel
 		foreach (Transform child in parentPanel.transform) {
 			if (child.gameObject.tag == buttonArray [indexer].tag) {
-				Debug.Log (buttonArray [indexer].tag + " duplicate answer found");
-				return true;
-			} else {
-				return false;
-			}
+				Debug.Log (child.gameObject.tag + " duplicate button found");
+				value = true;
+			} 
 		}
-		return false;
+		return value;
 	}
 
+	/// <summary>
+	/// Loops through all children of parentPanel (buttons) to destroy them.
+	/// goes backwards due to indexing issues when destroying
+	/// </summary>
 	public void DestroyAllButtons(){
-		// for every transform in parentPanel, Destroy all children!!
-		foreach (Transform child in parentPanel.transform) {
-			GameObject.Destroy(child.gameObject);
+
+		for(int i = parentPanel.transform.childCount-1; i >= 0; i--)
+		{
+			Transform child = parentPanel.transform.GetChild(i);
+			DestroyImmediate (child.gameObject);
 		}
+
 	}
+
 
 	public void CreateAllButtons(){
 		DestroyAllButtons ();
-
 		// sends x to be index while creating buttons
 		for (int x = 0; x < buttonArray.Length; x++) {
 			CreateButtons (x);
