@@ -10,6 +10,7 @@ public class ButtonSpawner : MonoBehaviour {
 	public ValidationSpawner validationSpawner;		// validation spawner attached below
 	public StripGenerator stripGenerator;		// stripGenerator attached below
 	private ScoreKeeper scoreKeeper;			// ScoreKeeper attached below
+	private TimeKeeper timeKeeper;				// timeKeeper attached below
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,7 @@ public class ButtonSpawner : MonoBehaviour {
 		validationSpawner = GameObject.Find ("Validation Spawner").GetComponent<ValidationSpawner> ();
 		stripGenerator = GameObject.Find ("StripGenerator").GetComponent<StripGenerator> ();
 		scoreKeeper = GameObject.Find ("ScoreKeeper").GetComponent<ScoreKeeper> ();
+		timeKeeper = GameObject.Find ("Timer").GetComponent<TimeKeeper> ();
 
 		CreateAllButtons ();		// initialize scene with all buttons displayed
 	
@@ -154,6 +156,8 @@ public class ButtonSpawner : MonoBehaviour {
 			/* when button pressed, passes button name from editor to string name,
 		 * compares name to tag. Performs functions if guess is correct or incorrect
 		 * */
+
+			timeKeeper.StartGame ();	// restart timer if paused
 			if (name == StripGenerator.Strip.tag) {	// if name matches Strip tag (correct guess)
 
 				ScoreKeeper.correct++;		// adds a correct guess

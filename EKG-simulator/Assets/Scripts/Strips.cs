@@ -66,7 +66,7 @@ public class Strips : MonoBehaviour {
 			break;
 
 		case "SVT":
-			hR = 140;
+			hR = 155;
 			break;
 
 		case "PJC":

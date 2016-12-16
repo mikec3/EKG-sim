@@ -867,13 +867,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7ac8a15bc02ef4697bc2b11c4190acfe, type: 3}
-    m_FontSize: 18
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 43
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -903,8 +903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 126, y: 133.7}
-  m_SizeDelta: {x: 896, y: 54}
+  m_AnchoredPosition: {x: -46, y: 153.6}
+  m_SizeDelta: {x: 565, y: 37.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1216741069 stripped
 Transform:
@@ -1389,9 +1389,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7ac8a15bc02ef4697bc2b11c4190acfe, type: 3}
-    m_FontSize: 26
-    m_FontStyle: 0
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 29
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 43
@@ -1543,7 +1543,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11449732, guid: ebff27604682c4565858922634f6df08, type: 2}
       propertyPath: m_CellSize.y
-      value: 27
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 11449732, guid: ebff27604682c4565858922634f6df08, type: 2}
       propertyPath: m_CellSize.x
