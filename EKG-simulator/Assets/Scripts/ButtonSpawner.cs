@@ -157,7 +157,10 @@ public class ButtonSpawner : MonoBehaviour {
 		 * compares name to tag. Performs functions if guess is correct or incorrect
 		 * */
 
+			if(TimeKeeper.paused){
 			timeKeeper.StartGame ();	// restart timer if paused
+			}
+
 			if (name == StripGenerator.Strip.tag) {	// if name matches Strip tag (correct guess)
 
 				ScoreKeeper.correct++;		// adds a correct guess
