@@ -1179,6 +1179,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11481652, guid: af60f8f062ff84d8e892030ad6ba7559, type: 2}
+      propertyPath: StripArray2.Array.size
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 476462, guid: af60f8f062ff84d8e892030ad6ba7559, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.04
