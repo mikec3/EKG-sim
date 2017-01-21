@@ -5,6 +5,7 @@ using UnityEngine.UI;			// for buttons and canvas elements
 public class StripGenerator : MonoBehaviour {
 
 	public GameObject[] StripArray;		// array of EKG strips. Attached in editor.
+	public GameObject[] StripArray2;	// attached in editor. holds second set of strips
 	private int StripArraySize;			// holds max number of items in StripArray
 	public static GameObject Strip;			// strips are isntantiated as Strip GameObjects
 	public GameObject grid;				// holds stripGrid, attached in editor
@@ -42,25 +43,45 @@ public class StripGenerator : MonoBehaviour {
 		}
 	}
 
+
+
 	void AutoGenerateStrip(){
 		/* If game has started and
 		 * If StripGenerator has no children, then instantiates a randomly chosen strip from the 
 		 * strip array, sets it to GameOBject Strip and makes it a child of StripGenerator
 		 * */
 
+		GameObject[] arr = RandomArray ();	// randomly chooses striparray or striparray2
 
-		if (TimeKeeper.gameStarted == true){				// if the game has started
+		MakeTheDamStrip (arr);				// passes the randomly chosen array to be created
+	}
+
+	GameObject[] RandomArray(){
+		// Randomly chooses striparray or striparray2 and returns the selected array
+		if (Random.Range (0, 2) < 1) {
+			return StripArray;
+		}
+		else return StripArray2;
+
+	}
+
+	void MakeTheDamStrip(GameObject[] arr){
+
+		if (TimeKeeper.gameStarted == true) {				// if the game has started
 			if (transform.childCount == 0) {
 				//Debug.Log ("no strip");
 				int nextStripPointer = Random.Range (0, StripArraySize);
-				Strip = Instantiate (StripArray [nextStripPointer], transform.position, Quaternion.identity) as GameObject;
+				Strip = Instantiate (arr [nextStripPointer], transform.position, Quaternion.identity) as GameObject;
 				Strip.transform.parent = transform;
 
 				// tells buttonSpawner to create the random answer buttons
 				buttonSpawner.CreateRandomAnswerButtons ();
 			}
 		}
+
 	}
+
+
 
 	public static void DestroyStrip(){
 		Destroy (Strip);			// destroy current strip
