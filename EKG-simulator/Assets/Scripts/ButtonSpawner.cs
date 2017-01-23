@@ -11,6 +11,8 @@ public class ButtonSpawner : MonoBehaviour {
 	public StripGenerator stripGenerator;		// stripGenerator attached below
 	private ScoreKeeper scoreKeeper;			// ScoreKeeper attached below
 	private TimeKeeper timeKeeper;				// timeKeeper attached below
+	private LessonTextManager lessonTextManager;				// attached below
+
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,7 @@ public class ButtonSpawner : MonoBehaviour {
 		stripGenerator = GameObject.Find ("StripGenerator").GetComponent<StripGenerator> ();
 		scoreKeeper = GameObject.Find ("ScoreKeeper").GetComponent<ScoreKeeper> ();
 		timeKeeper = GameObject.Find ("Timer").GetComponent<TimeKeeper> ();
+		lessonTextManager = GameObject.Find ("LessonTextManager").GetComponent<LessonTextManager> ();
 
 		CreateAllButtons ();		// initialize scene with all buttons displayed
 	
@@ -179,9 +182,15 @@ public class ButtonSpawner : MonoBehaviour {
 			// passes the name on the button to the StripGenerator GenerateStrip method
 			scoreKeeper.EraseStats();			// erases stats for learnMode
 			stripGenerator.GenerateStrip(name);	
+
+			//TODO add lesson text trigger here.
+			lessonTextManager.ShowLesson();	
+
 		}
 		
 	}
+
+
 
 			
 				
