@@ -6,9 +6,8 @@ using UnityEngine.UI;		// for text elements
 public class LessonTextManager : MonoBehaviour {
 
 
-	public GameObject lessonTextBackground;		// attached in editor, background image
-	private GameObject lessonTextBackgroundClone;	// holds instantiated background
-	public GameObject lessonText;				// attached in editor, text gameObject
+	public GameObject lessonPreFab;	// attached in unity, holds the lesson componenets
+	public GameObject lessonClone;	// lessonPreFab instantiated as lessonClone
 
 
 	void Start(){
@@ -16,24 +15,19 @@ public class LessonTextManager : MonoBehaviour {
 
 	}
 
+	// this gets called by the button scrip
 	public void ShowLesson(){
-		DisplayBackground ();
-		DisplayText ();
-	}
 
-	void DisplayBackground(){
-		//Instantiates the lessonTextBackground as a clone (for deleting and instantiating purposes)
-	
-		lessonTextBackgroundClone = Instantiate (lessonTextBackground, transform.position, Quaternion.identity)as GameObject;
-		lessonTextBackgroundClone.transform.SetParent (transform, false);
+		lessonClone = Instantiate (lessonPreFab, transform.position, Quaternion.identity) as GameObject;
+		lessonClone.transform.SetParent (transform, false);
 
 	}
 
-	void DisplayText(){
 
-		GameObject textElement;
-		textElement = Instantiate (lessonText, transform.position, Quaternion.identity) as GameObject;
-		textElement.transform.SetParent (lessonTextBackgroundClone.transform, true);
-
+	// TODO DOESNT work!!!!!!!!
+	public void CloseLesson(){
+		Destroy (lessonClone);
+		Debug.Log ("closelesson!");
 	}
+
 }
