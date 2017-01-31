@@ -13,11 +13,15 @@ public class TimeKeeper : MonoBehaviour {
 
 	public static bool gameStarted;		// stores if game has started
 	private ButtonSpawner buttonSpawner;	// attached below, spawns buttons.
+	private LessonTextManager lessonTextManager;	// attached below
 
 	// Use this for initialization
 	void Start () {
 		// attaches ButtonSpawner
 		buttonSpawner = GameObject.Find("Button Spawner").GetComponent<ButtonSpawner>();
+
+		// attaches LessonTextManager
+		lessonTextManager = GameObject.Find("LessonTextManager").GetComponent<LessonTextManager>();
 
 		finished = false;			// game is not yet finished
 		gameStarted = false;		// game has not yet started
@@ -74,11 +78,11 @@ public class TimeKeeper : MonoBehaviour {
 	}
 
 	public void StartGame(){		// start game
-		if (!paused) {
-			StripGenerator.DestroyStrip ();	// destroy strip if game NOT paused
-		}
+		
+		StripGenerator.DestroyStrip ();
 		TimeKeeper.gameStarted = true;		// gameStarted static bool is true
 		paused = false;						// paused static bool is false
+		lessonTextManager.CloseLesson();	// closes lesson
 	}
 
 	public void PauseGame(){		// pause button, pauses game
